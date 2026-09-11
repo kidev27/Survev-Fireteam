@@ -1,0 +1,95 @@
+serverMode: "live"
+advertiseHost: ""
+proxyIPHeader: "X-Real-IP"
+
+api: {
+  enabled: true
+  port: 8000
+}
+
+game: {
+  enabled: true
+  port: 8001
+  firstMatch: 9000
+  maxGames: 16
+  id: "main"
+  name: "Fireteam"
+  url: "https://fireteam.example.com"
+  address: "127.0.0.1:8001"
+
+  mapName: "specops"
+  difficulty: "regular"
+  endless: false
+  contractsEnabled: true
+  maxSquadSize: 4
+  maxPlayersPerGame: 0
+  modes: {
+    solo: true
+    duo: true
+    squad: true
+  }
+}
+
+client: {
+  enabled: true
+  port: 3000
+}
+
+database: {
+  engine: "sqlite"                  // sqlite (default) | postgres | mariadb | mongodb
+
+  sqlite: {
+    path: "data/specops-local.db"
+  }
+  postgres: {
+    host: "127.0.0.1"
+    port: 5432
+    name: "survev"
+    user: "survev"
+    password: "survev"
+  }
+  mariadb: {
+    host: "127.0.0.1"
+    port: 3306
+    name: "survev"
+    user: "survev"
+    password: "survev"
+  }
+  mongodb: {
+    host: "127.0.0.1"
+    port: 27017
+    name: "survev"
+  }
+}
+
+secrets: {
+  SURVEV_API_KEY: "CHANGE_ME_generate_a_long_random_key"
+  SURVEV_IP_SECRET: "CHANGE_ME_generate_a_long_random_key"
+}
+
+captchaEnabled: false
+rateLimitsEnabled: true
+uniqueInGameNames: true
+cachingEnabled: false
+oauthRedirectURI: "https://fireteam.example.com"
+
+debug: {
+  enabled: false
+  allowBots: false
+  allowEditMsg: false
+  allowMockAccount: false
+  allowNpcSpawn: false
+}
+
+gameTps: 100
+netSyncTps: 33
+
+logging: {
+  logDate: true
+  infoLogs: true
+  debugLogs: false
+  warnLogs: true
+  errorLogs: true
+  clientLogs: true
+  clientLogDir: "logs/client"
+}

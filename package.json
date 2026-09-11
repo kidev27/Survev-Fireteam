@@ -1,0 +1,52 @@
+{
+  "name": "survev",
+  "version": "0.3.12",
+  "type": "module",
+  "description": "Open Source Surviv.io Server",
+  "scripts": {
+    "survev-setup": "bun install && bun run setup.ts",
+    "dev": "bun run dev:app",
+    "dev:app": "concurrently -n proxy,api,game,client -c cyan,blue,magenta,green \"bun run dev:wan-proxy\" \"bun run dev:api\" \"bun run dev:game\" \"bun run dev:client:internal\"",
+    "dev:wan-proxy": "bun scripts/dev-wan-proxy.ts",
+    "dev:api": "bun --watch --watch-path=survev-config.hjson --watch-path=server/src --watch-path=shared --watch-path=config.ts server/src/api/index.ts",
+    "dev:game": "bun --watch --watch-path=survev-config.hjson --watch-path=server/src --watch-path=shared --watch-path=config.ts server/src/gameServer.ts",
+    "dev:client": "bun run --cwd client dev",
+    "dev:client:internal": "bun run --cwd client dev:internal",
+    "build": "bun run --cwd server build && bun run --cwd client build",
+    "start": "bun scripts/start-prod.mjs",
+    "stressTest": "bun run --cwd server stressTest",
+    "lint": "oxlint --fix; dprint fmt",
+    "lint:ci": "oxlint; dprint check"
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  },
+  "author": "Leia",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@types/hjson": "^2.4.6",
+    "@types/http-proxy": "^1.17.17",
+    "@types/node": "~22.12.0",
+    "@types/ws": "^8.18.1",
+    "concurrently": "^10.0.4",
+    "dprint": "^0.55.2",
+    "http-proxy": "^1.18.1",
+    "oxlint": "^1.77.0",
+    "typescript": "^6.0.3",
+    "ws": "^8.21.3"
+  },
+  "dependencies": {
+    "enquirer": "^2.4.1",
+    "hjson": "^3.2.2",
+    "tsx": "^4.23.5"
+  },
+  "packageManager": "pnpm@11.18.0",
+  "workspaces": [
+    "server/",
+    "shared/",
+    "client/",
+    "bot/",
+    "tests/",
+    "!**dist/**"
+  ]
+}

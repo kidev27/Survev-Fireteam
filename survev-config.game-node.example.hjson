@@ -1,0 +1,77 @@
+serverMode: "live"
+bind: "0.0.0.0"                      // so master can reach :8001 for find_game only
+proxyIPHeader: "X-Real-IP"
+
+// Child node: players connect HERE for matches.
+// Link to master is heartbeat + leaderboard only (handshake → update_region every 5s,
+// plus save_game after matches). Master does not need a persistent "full" connection.
+
+api: {
+  enabled: false
+  port: 8000
+}
+
+game: {
+  enabled: true
+  port: 8001
+  firstMatch: 9000
+  maxGames: 16
+  apiUrl: "https://fireteam.bbyte.app"  // master — heartbeats + leaderboard push
+  id: "ft1"
+  name: "Fireteam 1"
+  url: "https://fireteam1.bbyte.app"    // players (nginx on this box)
+  address: "10.0.0.11:8001"             // master → this game for find_game only (not 127.0.0.1)
+
+  mapName: "specops"
+  difficulty: "regular"
+  endless: true
+  contractsEnabled: true
+  maxSquadSize: 8
+  maxPlayersPerGame: 0
+  modes: {
+    solo: true
+    duo: true
+    squad: true
+  }
+}
+
+client: {
+  enabled: false
+  port: 3000
+}
+
+database: {
+  engine: "sqlite"
+  sqlite: {
+    path: "data/specops-local.db"
+  }
+}
+
+secrets: {
+  SURVEV_API_KEY: "PASTE_SAME_KEY_AS_MASTER"
+  SURVEV_IP_SECRET: "PASTE_SAME_OR_ANY_LOCAL"
+}
+
+captchaEnabled: false
+rateLimitsEnabled: true
+uniqueInGameNames: true
+cachingEnabled: false
+
+debug: {
+  enabled: false
+  allowBots: false
+  allowEditMsg: false
+  allowMockAccount: false
+  allowNpcSpawn: false
+}
+
+gameTps: 100
+netSyncTps: 33
+
+logging: {
+  logDate: true
+  infoLogs: true
+  debugLogs: false
+  warnLogs: true
+  errorLogs: true
+}

@@ -1,0 +1,2764 @@
+/* Spec Ops main menu — matches in-game HUD palette */
+
+.specops-menu-hidden,
+.specops-start .ad-block-header,
+.specops-start .ad-block-left-center,
+.specops-start .ad-block-right-center,
+.specops-start .ad-block-leaderboard-bottom,
+.specops-start #start-top-left-desktop,
+.specops-start #btn-hamburger {
+  display: none !important;
+}
+
+.specops-start #background {
+  filter: saturate(1.08) brightness(0.72);
+}
+
+.specops-start #start-overlay {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 35%, rgba(40, 70, 30, 0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 85% 50%, rgba(107, 143, 60, 0.08) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(4, 8, 4, 0.35) 0%, rgba(2, 5, 2, 0.88) 100%);
+}
+
+#start-menu-wrapper.specops-start {
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+}
+
+.specops-start #start-main {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  margin-bottom: 0 !important;
+  max-height: 100dvh;
+  min-height: 0;
+  width: 100%;
+}
+
+.specops-start #start-main-center {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: clamp(8px, 1.5vh, 16px) clamp(10px, 2.5vw, 16px);
+  width: 100%;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Team lobby: vertically + horizontally center the card once brand hides */
+.specops-start #start-main-center:has(.specops-hub-center--team) {
+  justify-content: center;
+  padding-block: clamp(12px, 3vh, 28px);
+}
+
+.specops-start .specops-menu-stage:has(.specops-hub-center--team) > .specops-hero-brand {
+  display: none;
+}
+
+/* ── Brand / logo ── */
+
+.specops-hero-brand {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: clamp(4px, 1vh, 10px);
+  text-align: center;
+  width: 100%;
+}
+
+.specops-hero-header {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.specops-hero-logo {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.specops-hero-account,
+.specops-start #start-top-right {
+  flex: 0 0 auto;
+  margin: 0;
+  max-width: min(46vw, 210px);
+  position: absolute !important;
+  right: 0;
+  top: 0;
+  transform: none !important;
+  width: auto;
+  z-index: 1;
+}
+
+.specops-start #start-row-header.specops-text-logo {
+  background-image: none !important;
+  height: auto;
+  margin: 0 0 4px;
+  width: auto;
+}
+
+.specops-logo-lockup {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.specops-logo-box {
+  align-items: center;
+  background: rgba(6, 12, 6, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 3px;
+  box-shadow:
+    0 6px 28px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(157, 255, 157, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 28px 12px;
+}
+
+.specops-logo-title {
+  color: #fff;
+  font-family: "Roboto Condensed", arial, sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+.specops-logo-mode {
+  color: #9dff9d;
+  font-family: "Roboto Condensed", arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.specops-hero-tagline {
+  color: rgba(200, 220, 180, 0.72);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+  margin: 0 auto;
+  max-width: 360px;
+}
+
+.specops-start #server-warning {
+  font-size: 13px;
+  left: 50%;
+  position: absolute;
+  top: -8px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+/* ── Panel ── */
+
+.specops-start #start-row-top {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: flex-start;
+  min-height: 0;
+  position: relative;
+  width: 100%;
+}
+
+/* ── Menu stage: logo + panel centered, leaderboard beside ── */
+
+.specops-hero-layout {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.specops-menu-stage {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.specops-menu-stage > .specops-hero-brand {
+  margin-bottom: 14px;
+  width: min(420px, 94vw);
+}
+
+.specops-menu-stage > .specops-menu-column {
+  row-gap: 14px;
+  width: min(420px, 94vw);
+}
+
+.specops-menu-stage > .specops-lb-sidebar {
+  position: static;
+  width: 100%;
+}
+
+.specops-menu-stage--team > .specops-hero-brand,
+.specops-menu-stage--team > .specops-menu-column,
+.specops-menu-stage:has(.specops-hub-center--team) > .specops-hero-brand,
+.specops-menu-stage:has(.specops-hub-center--team) > .specops-menu-column {
+  margin-inline: auto;
+  width: min(560px, 94vw);
+}
+
+.specops-menu-stage--team > .specops-lb-sidebar,
+.specops-menu-stage:has(.specops-hub-center--team) > .specops-lb-sidebar {
+  display: none;
+}
+
+.specops-menu-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  width: 100%;
+}
+
+.specops-hub-center {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+  width: 100%;
+}
+
+.specops-hub-center--team {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-inline: auto;
+  width: 100%;
+}
+
+/* Beat legacy app.css + earlier width:100% !important so the lobby is a real centered card */
+.specops-start .specops-hub-center--team #team-menu.specops-panel,
+.specops-start .specops-hub-center--team #team-mobile-link.specops-panel {
+  align-self: center;
+  left: auto !important;
+  margin: 0 auto !important;
+  max-height: none !important;
+  max-width: min(560px, 94vw) !important;
+  position: relative !important;
+  top: auto !important;
+  transform: none !important;
+  width: min(560px, 94vw) !important;
+}
+
+/* Legacy hub-grid alias (removed from HTML) */
+.specops-hub-grid {
+  align-items: flex-start;
+  display: contents;
+}
+
+.specops-start #start-menu.specops-panel,
+.specops-start #team-menu.specops-panel,
+.specops-start #team-mobile-link.specops-panel,
+.specops-start #specops-lb-sidebar.specops-panel {
+  background: rgba(6, 10, 6, 0.82);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(107, 143, 60, 0.45);
+  border-radius: 10px;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(200, 240, 160, 0.08);
+  float: none;
+  height: auto !important;
+  max-height: none !important;
+  overflow: hidden;
+  padding: 0 !important;
+  position: relative;
+  width: 100% !important;
+}
+
+/* Reset legacy app.css menu rules inside Spec Ops panels */
+.specops-start .specops-panel .menu-option {
+  border-radius: inherit;
+  box-sizing: border-box;
+  height: auto;
+  line-height: inherit;
+  margin-bottom: 0 !important;
+  width: auto;
+}
+
+.specops-start .specops-panel .specops-mode-tab.menu-option,
+.specops-start .specops-panel .specops-footer-btn.menu-option,
+.specops-start .specops-panel .specops-deploy-btn.menu-option,
+.specops-start .specops-panel .specops-secondary-btn.menu-option {
+  width: 100% !important;
+}
+
+.specops-start .specops-panel .specops-mode-tab.menu-option {
+  height: 36px;
+  line-height: 36px;
+}
+
+.specops-start .specops-panel .specops-deploy-btn.menu-option {
+  height: 52px;
+  line-height: 50px;
+}
+
+.specops-start .specops-panel .specops-secondary-btn.menu-option {
+  height: 40px;
+  line-height: 38px;
+}
+
+.specops-start .specops-panel .specops-footer-btn.menu-option {
+  height: 38px !important;
+  line-height: 36px !important;
+}
+
+.specops-start .specops-panel .player-name-input.menu-option {
+  cursor: text;
+  height: 42px;
+  line-height: 42px;
+  text-align: left;
+  width: auto;
+}
+
+.specops-start .specops-panel #btn-customize.menu-option {
+  height: 42px;
+  width: 42px !important;
+}
+
+.specops-start .specops-panel .specops-select.menu-option {
+  height: 42px;
+  line-height: normal;
+  text-align: left;
+  width: 100% !important;
+}
+
+.specops-start #team-menu.specops-panel,
+.specops-start #team-mobile-link.specops-panel {
+  display: none;
+  flex-direction: column;
+  height: auto !important;
+  max-height: none !important;
+  overflow: hidden;
+  padding: 0 !important;
+  position: relative;
+  width: 100% !important;
+}
+
+.specops-start #team-menu.specops-panel > .specops-panel-accent {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.specops-start #team-menu.specops-panel > .play-loading-outer {
+  border-radius: 10px;
+}
+
+.specops-start #team-menu.specops-panel > .specops-team-shell {
+  flex: 1;
+  min-height: 0;
+  overflow: visible;
+}
+
+.specops-panel-accent {
+  background: linear-gradient(90deg, transparent, #9dff9d 20%, #6b8f3c 50%, #9dff9d 80%, transparent);
+  height: 2px;
+  opacity: 0.85;
+  width: 100%;
+}
+
+.specops-panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 22px 16px;
+}
+
+/* ── Form fields ── */
+
+.specops-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.specops-field--center {
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.specops-field--center .specops-field-label {
+  text-align: center;
+  width: 100%;
+}
+
+.specops-field--center .specops-mode-switch,
+.specops-field--center .specops-mode-switch--pair,
+.specops-field--center .specops-select.server-select,
+.specops-field-row--center {
+  max-width: 100%;
+  width: 100%;
+}
+
+.specops-field-row--center {
+  justify-content: center;
+}
+
+.specops-field-label {
+  color: #8faa6e;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.specops-field-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.specops-start #player-options {
+  align-items: stretch;
+  display: flex;
+  gap: 8px;
+  margin-right: 0;
+  width: 100%;
+}
+
+.specops-start #player-options > input {
+  flex: 1;
+  margin-right: 0;
+  min-width: 0;
+}
+
+.specops-start .specops-input.player-name-input {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(107, 143, 60, 0.35);
+  border-radius: 6px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35);
+  color: #eef6d4;
+  flex: 1;
+  font-size: 15px;
+  height: 42px;
+  line-height: 42px;
+  margin: 0;
+  padding: 0 12px;
+  width: auto;
+}
+
+.specops-start .specops-input.player-name-input:focus {
+  border-color: rgba(157, 255, 157, 0.55);
+  outline: none;
+}
+
+.specops-start .specops-input.player-name-input::placeholder {
+  color: rgba(180, 200, 160, 0.45);
+}
+
+/* Fireteam name — real text box (not the dropdown styling used by .specops-team-select). */
+.specops-start #team-squad-name-input.specops-squad-name-input,
+.specops-start .specops-input.specops-squad-name-input {
+  appearance: none;
+  background: rgba(0, 0, 0, 0.45) !important;
+  background-image: none !important;
+  border: 1px solid rgba(107, 143, 60, 0.35) !important;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  color: #eef6d4;
+  cursor: text;
+  font-size: 12px;
+  height: 28px;
+  line-height: 26px;
+  margin: 0 !important;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0 10px !important;
+  text-align: left;
+  width: 100% !important;
+}
+
+.specops-start #team-squad-name-input.specops-squad-name-input:focus,
+.specops-start .specops-input.specops-squad-name-input:focus {
+  background-color: rgba(107, 143, 60, 0.12) !important;
+  border-color: #9dff9d !important;
+  outline: none;
+}
+
+.specops-start #team-squad-name-input.specops-squad-name-input::placeholder {
+  color: rgba(180, 200, 160, 0.45);
+}
+
+.specops-start #team-squad-name-input.specops-squad-name-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.specops-start #btn-customize.specops-loadout-btn {
+  background-color: rgba(0, 0, 0, 0.45);
+  background-image: url(/img/emotes/surviv.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 26px;
+  border: 1px solid rgba(107, 143, 60, 0.35);
+  border-radius: 6px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+  height: 42px;
+  margin: 0;
+  width: 42px;
+}
+
+.specops-start .specops-select.server-select,
+.specops-start #server-select-main,
+.specops-start #team-server-select {
+  appearance: none;
+  background: rgba(0, 0, 0, 0.45) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239dff9d' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 12px center !important;
+  background-color: rgba(0, 0, 0, 0.45) !important;
+  border: 1px solid rgba(107, 143, 60, 0.35);
+  border-radius: 6px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35);
+  color: #eef6d4;
+  cursor: pointer;
+  font-size: 14px;
+  height: 42px;
+  line-height: 42px;
+  margin: 0;
+  padding: 0 36px 0 12px;
+  text-align-last: left;
+  width: 100%;
+}
+
+/* ── Mode tabs ── */
+
+.specops-mode-switch {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(107, 143, 60, 0.3);
+  border-radius: 8px;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 4px;
+}
+
+.specops-mode-tab {
+  background: transparent;
+  background-image: none !important;
+  border: none;
+  border-radius: 5px;
+  color: rgba(200, 220, 170, 0.65);
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  height: 36px;
+  line-height: 36px;
+  margin: 0 !important;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  width: 100% !important;
+}
+
+.specops-mode-tab:hover {
+  color: #eef6d4;
+}
+
+.specops-mode-tab.is-active {
+  background: rgba(107, 143, 60, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(157, 255, 157, 0.25);
+  color: #f0ffd8;
+}
+
+/* ── Deploy CTA ── */
+
+.specops-deploy-btn {
+  background: linear-gradient(180deg, #9bc95a 0%, #5d8a32 55%, #4a7028 100%);
+  border: 1px solid #b8e86a;
+  border-radius: 8px;
+  box-shadow:
+    0 6px 28px rgba(93, 138, 50, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  height: 52px;
+  letter-spacing: 0.12em;
+  line-height: 50px;
+  margin: 2px 0 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  width: 100%;
+}
+
+.specops-deploy-btn:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.specops-deploy-btn:active {
+  transform: translateY(0);
+}
+
+.specops-deploy-btn.is-loading {
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.specops-deploy-btn.is-loading .specops-deploy-label .ui-spinner {
+  margin-top: 14px;
+}
+
+/* ── Secondary button ── */
+
+.specops-secondary-btn {
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(107, 143, 60, 0.28);
+  border-radius: 7px;
+  color: #d7f0a2 !important;
+  cursor: pointer;
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  height: 40px;
+  letter-spacing: 0.06em;
+  line-height: 38px;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+  width: 100%;
+}
+
+.specops-secondary-btn:hover {
+  background: rgba(107, 143, 60, 0.14);
+  border-color: rgba(157, 255, 157, 0.38);
+  transform: translateY(-1px);
+}
+
+/* ── Leaderboard sidebar (live scoreboard) ── */
+
+.specops-lb-sidebar {
+  align-self: start;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  min-height: 0;
+  width: 100%;
+}
+
+.specops-lb-sidebar-inner {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 18px 16px;
+}
+
+.specops-lb-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.specops-lb-title {
+  color: #eef6d4;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.specops-lb-subtitle {
+  color: rgba(180, 200, 160, 0.6);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  margin: 0;
+  white-space: normal;
+}
+
+.specops-lb-tabs {
+  align-items: stretch;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(107, 143, 60, 0.28);
+  border-radius: 8px;
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+}
+
+.specops-lb-tab {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: rgba(200, 220, 170, 0.65);
+  cursor: pointer;
+  flex: 1;
+  font-size: 11px;
+  font-weight: 700;
+  height: 34px;
+  letter-spacing: 0.04em;
+  line-height: 34px;
+  margin: 0;
+  min-width: 0;
+  padding: 0 4px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.specops-lb-tab:hover {
+  color: #eef6d4;
+}
+
+.specops-lb-tab.is-active {
+  background: rgba(107, 143, 60, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(157, 255, 157, 0.2);
+  color: #f0ffd8;
+}
+
+.specops-lb-tabs .specops-lb-tab.is-active:first-child {
+  border-bottom-left-radius: 7px;
+  border-top-left-radius: 7px;
+}
+
+.specops-lb-tabs .specops-lb-tab.is-active:last-child {
+  border-bottom-right-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.specops-lb-divider {
+  align-self: stretch;
+  background: rgba(107, 143, 60, 0.35);
+  flex-shrink: 0;
+  width: 1px;
+}
+
+.specops-lb-scoreboard {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(107, 143, 60, 0.25);
+  border-radius: 8px;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.specops-lb-score-head,
+.specops-lb-entry {
+  align-items: center;
+  column-gap: 8px;
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) 56px 52px;
+  padding: 0 10px;
+}
+
+.specops-lb-score-head {
+  background: rgba(107, 143, 60, 0.12);
+  border-bottom: 1px solid rgba(107, 143, 60, 0.28);
+  color: #8faa6e;
+  font-size: 9px;
+  font-weight: 700;
+  height: 30px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.specops-lb-score-head span:first-child {
+  text-align: center;
+}
+
+.specops-lb-score-head span:nth-child(2) {
+  text-align: left;
+}
+
+.specops-lb-score-head span:nth-child(3),
+.specops-lb-score-head span:nth-child(4) {
+  overflow: hidden;
+  text-align: right;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.specops-lb-entries {
+  flex: 1 1 auto;
+  list-style: none;
+  margin: 0;
+  /* Stacked layout: fixed scroll viewport; wide layout overrides to fill sidebar. */
+  max-height: min(290px, 42vh);
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0;
+  scrollbar-color: rgba(157, 255, 157, 0.45) rgba(0, 0, 0, 0.25);
+  scrollbar-width: thin;
+}
+
+.specops-lb-entries::-webkit-scrollbar {
+  width: 8px;
+}
+
+.specops-lb-entries::-webkit-scrollbar-thumb {
+  background: rgba(157, 255, 157, 0.4);
+  border-radius: 4px;
+}
+
+.specops-lb-entries::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.specops-lb-entry {
+  border-bottom: 1px solid rgba(107, 143, 60, 0.1);
+  color: #eef6d4;
+  font-size: 11px;
+  height: 30px;
+  letter-spacing: normal;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.specops-lb-entry:last-child {
+  border-bottom: none;
+}
+
+.specops-lb-entry:nth-child(-n + 3) .specops-lb-rank {
+  color: #9dff9d;
+}
+
+.specops-lb-rank {
+  color: rgba(180, 200, 160, 0.75);
+  font-weight: 700;
+  text-align: center;
+}
+
+.specops-lb-player {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.specops-lb-entry.is-team .specops-lb-player {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  white-space: normal;
+}
+
+.specops-lb-team-name {
+  color: #eef6d4;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.specops-lb-team-meta {
+  color: rgba(180, 200, 160, 0.55);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.specops-lb-rounds {
+  color: #eef6d4;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.specops-lb-time {
+  color: #9dff9d;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.specops-lb-scoreboard:has(.specops-lb-entry) .specops-lb-status {
+  display: none;
+}
+
+.specops-lb-status {
+  align-items: center;
+  color: rgba(180, 200, 160, 0.65);
+  display: flex;
+  flex: 1;
+  font-size: 11px;
+  justify-content: center;
+  line-height: 1.45;
+  margin: 0;
+  min-height: 120px;
+  padding: 20px 12px;
+  text-align: center;
+}
+
+.specops-lb-status:empty {
+  display: none;
+}
+
+.specops-lb-footer {
+  padding-top: 4px;
+}
+
+.specops-lb-footer .specops-secondary-btn {
+  font-size: 11px;
+  height: 36px;
+  line-height: 34px;
+}
+
+.specops-lb-tab.menu-gamepad-focus,
+.specops-lb-entry.menu-gamepad-focus {
+  box-shadow: inset 0 0 0 1px rgba(157, 255, 157, 0.35);
+}
+
+.specops-mode-switch--pair {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Start-menu create/join: keep the pair visually centered as a unit */
+.specops-field--center .specops-create-team-switch {
+  margin-inline: auto;
+  max-width: 320px;
+}
+
+/* ── Team menu (scoped layout — overrides legacy app.css) ── */
+
+.specops-team-panel {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+}
+
+.specops-team-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 18px 16px;
+  position: relative;
+}
+
+.specops-team-header {
+  align-items: center;
+  border-bottom: 1px solid rgba(107, 143, 60, 0.22);
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  min-height: 34px;
+  padding: 0 0 12px;
+  position: relative;
+}
+
+.specops-team-title {
+  color: #eef6d4;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 1px 14px rgba(157, 255, 157, 0.22);
+  text-transform: uppercase;
+}
+
+.specops-start #btn-team-leave.specops-team-leave {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(107, 143, 60, 0.35) !important;
+  border-radius: 5px !important;
+  bottom: auto !important;
+  box-shadow: none !important;
+  color: rgba(200, 220, 170, 0.85) !important;
+  flex: none;
+  font-size: 9px !important;
+  font-weight: 700;
+  height: 24px !important;
+  letter-spacing: 0.08em;
+  line-height: 22px !important;
+  margin: 0 !important;
+  padding: 0 10px !important;
+  position: absolute !important;
+  right: 0;
+  text-decoration: none;
+  text-shadow: none !important;
+  text-transform: uppercase;
+  top: 50%;
+  transform: translateY(-50%) !important;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  width: auto !important;
+}
+
+.specops-start #btn-team-leave.specops-team-leave:hover {
+  background: rgba(180, 50, 50, 0.3) !important;
+  border-color: rgba(220, 90, 90, 0.6) !important;
+  color: #ffc0c0 !important;
+}
+
+.specops-team-connecting,
+.specops-start #team-menu-connecting {
+  align-items: center;
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
+  margin: 48px 0 !important;
+  min-height: 120px;
+  text-align: center;
+  width: 100%;
+}
+
+.specops-start .team-menu-connecting-text {
+  color: #d7f0a2;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.specops-team-main,
+.specops-start #team-menu-contents {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Invite card */
+.specops-team-invite,
+.specops-start #team-desc {
+  background:
+    linear-gradient(180deg, rgba(20, 32, 14, 0.45) 0%, rgba(0, 0, 0, 0.28) 100%);
+  border: 1px solid rgba(107, 143, 60, 0.28);
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex !important;
+  flex-direction: column;
+  gap: 0;
+  margin: 0 !important;
+  overflow: hidden;
+  padding: 10px 12px;
+  width: 100% !important;
+}
+
+.specops-team-invite-cols {
+  align-items: stretch;
+  display: grid;
+  gap: 10px 16px;
+  grid-template-columns: minmax(0, 140px) minmax(0, 1fr);
+  min-width: 0;
+  width: 100%;
+}
+
+@media (max-width: 520px) {
+  .specops-team-invite-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+.specops-team-invite-field {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.specops-team-invite-field--link .specops-team-field-label {
+  text-align: center;
+}
+
+.specops-team-field-label {
+  color: #8faa6e;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.specops-team-invite-field:not(.specops-team-invite-field--link) .specops-team-field-label {
+  text-align: center;
+}
+
+.specops-team-field-value-row {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  gap: 6px;
+  height: 36px;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.specops-team-code-display {
+  align-items: center;
+  appearance: none;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(157, 255, 157, 0.28);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 rgba(200, 240, 160, 0.06);
+  box-sizing: border-box;
+  color: #9dff9d;
+  cursor: pointer;
+  display: flex;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 18px;
+  font-weight: 800;
+  height: 36px;
+  justify-content: center;
+  letter-spacing: 0.18em;
+  margin: 0;
+  padding: 0 10px;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(157, 255, 157, 0.28);
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+}
+
+.specops-team-code-display #team-code {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.specops-team-code-display:hover {
+  background: rgba(20, 40, 12, 0.65);
+  border-color: rgba(157, 255, 157, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(200, 240, 160, 0.1),
+    0 0 16px rgba(157, 255, 157, 0.12);
+}
+
+.specops-team-link-display,
+.specops-start #team-desc-text .specops-team-link-display,
+.specops-start #team-url {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(107, 143, 60, 0.28);
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: rgba(200, 220, 170, 0.85) !important;
+  display: block;
+  flex: 1 1 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  height: 36px;
+  letter-spacing: 0.01em;
+  line-height: 34px;
+  margin: 0;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0 8px;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: auto;
+}
+
+.specops-team-invite-field--link .specops-team-field-value-row {
+  justify-content: flex-start;
+}
+
+.specops-team-invite-actions {
+  align-items: center;
+  display: flex;
+  flex: none;
+  gap: 4px;
+}
+
+.specops-team-icon-btn {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 14px;
+  border: 1px solid rgba(107, 143, 60, 0.28);
+  border-radius: 6px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex !important;
+  flex: none;
+  height: 36px;
+  justify-content: center;
+  margin: 0 !important;
+  position: static !important;
+  top: auto !important;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  width: 36px;
+}
+
+.specops-team-icon-btn--copy {
+  background-image: url(/img/gui/copy.svg);
+}
+
+.specops-team-icon-btn--hide {
+  background-image: url(/img/gui/eye.svg);
+}
+
+.specops-team-icon-btn--hide.specops-team-icon-btn--hidden {
+  background-image: url(/img/gui/hide.svg);
+}
+
+.specops-team-icon-btn:hover {
+  background-color: rgba(107, 143, 60, 0.25);
+  border-color: #9dff9d;
+}
+
+.specops-start #team-desc-text {
+  cursor: pointer;
+  display: flex !important;
+  font-size: inherit;
+}
+
+/* Body: roster + settings */
+.specops-team-body,
+.specops-start #team-menu-columns {
+  align-items: stretch;
+  display: grid !important;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  height: auto !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.specops-team-section {
+  background:
+    linear-gradient(180deg, rgba(16, 24, 12, 0.35) 0%, rgba(0, 0, 0, 0.22) 100%);
+  border: 1px solid rgba(107, 143, 60, 0.22);
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  max-width: 100%;
+  min-width: 0;
+  overflow: visible;
+  padding: 10px;
+  width: 100%;
+}
+
+.specops-team-roster {
+  min-height: 0;
+}
+
+.specops-team-section-title {
+  color: #8faa6e;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin: 0;
+  padding-bottom: 2px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.specops-team-settings-fields {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.specops-team-settings-fields .specops-mode-switch {
+  box-sizing: border-box;
+  gap: 2px;
+  margin: 0;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  padding: 2px;
+  width: 100%;
+}
+
+.specops-team-settings-fields .specops-mode-switch--pair {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.specops-team-settings-fields .specops-mode-switch:not(.specops-mode-switch--pair) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.specops-team-field {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+}
+
+.specops-start .specops-team-select,
+.specops-start #team-map-select,
+.specops-start #team-difficulty-select,
+.specops-start #team-server-select,
+.specops-start #team-squad-size-select {
+  appearance: none;
+  background: rgba(0, 0, 0, 0.45) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%239dff9d' d='M1 1l4 4 4-4'/%3E%3C/svg%3E") no-repeat right 8px center !important;
+  background-color: rgba(0, 0, 0, 0.45) !important;
+  border: 1px solid rgba(107, 143, 60, 0.35) !important;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  color: #eef6d4;
+  cursor: pointer;
+  font-size: 11px;
+  height: 28px;
+  line-height: 26px;
+  margin: 0 !important;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0 24px 0 8px;
+  text-align-last: left;
+  transition: all 0.15s ease;
+  width: 100% !important;
+}
+
+.specops-start .specops-team-select:hover:not(:disabled),
+.specops-start .specops-team-select:focus {
+  background-color: rgba(107, 143, 60, 0.15) !important;
+  border-color: #9dff9d !important;
+}
+
+.specops-start .specops-team-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.specops-team-settings-fields .specops-team-field-label {
+  text-align: center;
+}
+
+.specops-team-field--check {
+  align-items: center;
+}
+
+.specops-team-check {
+  align-items: center;
+  color: #c8d4a8;
+  cursor: pointer;
+  display: flex;
+  font-size: 11px;
+  gap: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.specops-team-check input {
+  accent-color: #9dff9d;
+  appearance: auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  height: 14px;
+  margin: 0;
+  padding: 0;
+  width: 14px;
+}
+
+/* Keep mode pills inside the track — kill legacy btn-hollow outer borders */
+.specops-start #team-menu-options .team-menu-option.specops-mode-tab,
+.specops-start #team-menu-options .specops-mode-tab.menu-option,
+.specops-start #team-menu-options .specops-mode-tab.btn-hollow,
+.specops-start #team-menu-options .specops-mode-tab.btn-hollow-selected {
+  background-image: none !important;
+  border: none !important;
+  border-radius: 4px !important;
+  box-sizing: border-box !important;
+  flex: none !important;
+  font-size: 9px !important;
+  font-weight: 700;
+  height: 24px !important;
+  letter-spacing: 0.02em;
+  line-height: 24px !important;
+  margin: 0 !important;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0 2px !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100% !important;
+}
+
+.specops-start #team-menu-options .specops-mode-tab.btn-hollow-selected,
+.specops-start #team-menu-options .specops-mode-tab.is-active {
+  background: rgba(107, 143, 60, 0.4) !important;
+  box-shadow: inset 0 0 0 1px rgba(157, 255, 157, 0.55) !important;
+  color: #f0ffd8 !important;
+}
+
+.specops-team-play-footer,
+.specops-start #team-menu-options-start {
+  border-top: 1px solid rgba(107, 143, 60, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding-top: 12px;
+  width: 100%;
+}
+
+.specops-start #btn-start-team.specops-deploy-btn {
+  background-image: none !important;
+  box-shadow:
+    0 0 0 1px rgba(157, 255, 157, 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.35) !important;
+  font-size: 15px;
+  font-weight: 800;
+  height: 44px;
+  letter-spacing: 0.12em;
+  line-height: 42px;
+  margin: 0 !important;
+  text-transform: uppercase;
+  width: 100% !important;
+}
+
+.specops-team-wait,
+.specops-start #msg-wait-reason {
+  color: rgba(200, 220, 170, 0.75);
+  font-size: 10px;
+  margin: 0;
+  text-align: center;
+}
+
+/* Roster rows — tall enough for 8×32px slots + 7×4px gaps (no scroll at full squad) */
+.specops-team-roster-list,
+.specops-start #team-menu-member-list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  max-height: none;
+  overflow-y: visible;
+  width: 100%;
+}
+
+.specops-start #team-menu-members,
+.specops-start .team-menu-block {
+  float: none !important;
+  height: auto !important;
+  margin: 0 !important;
+  max-height: none !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.specops-start #team-menu-options {
+  display: flex !important;
+  flex-direction: column;
+  float: none !important;
+  gap: 6px;
+  margin: 0 !important;
+  min-width: 0;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.specops-start .team-menu-member {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(107, 143, 60, 0.22);
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: 24px minmax(0, 1fr) 24px;
+  height: 30px;
+  margin: 0 !important;
+  padding: 2px 6px;
+  transition: border-color 0.12s ease, background 0.12s ease;
+  width: 100%;
+}
+
+.specops-start .team-menu-member:hover {
+  background: rgba(107, 143, 60, 0.12);
+  border-color: rgba(107, 143, 60, 0.4);
+}
+
+.specops-start .team-menu-member:has(.name-empty) {
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px dashed rgba(107, 143, 60, 0.2);
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.specops-start .team-menu-member:has(.name-empty) .name.menu-option {
+  grid-column: 1;
+}
+
+.specops-start .team-menu-member > .icon {
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 14px;
+  border-radius: 3px;
+  display: flex;
+  flex: none;
+  height: 24px;
+  justify-content: center;
+  margin: 0 !important;
+  width: 24px;
+}
+
+.specops-start .team-menu-member .team-member-slot-spacer {
+  display: none;
+}
+
+.specops-start .team-menu-member .team-member-slot-spacer--empty {
+  display: none;
+}
+
+.specops-start .team-menu-member > .icon-leader {
+  background-color: rgba(255, 215, 0, 0.15);
+  background-image: url(/img/gui/crown.svg);
+  background-size: 16px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.specops-start .team-menu-member > .icon-kick {
+  background-image: url(/img/gui/close.svg);
+  background-size: 11px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.15s ease;
+}
+
+.specops-start .team-menu-member > .icon-kick:hover {
+  background-color: rgba(220, 60, 60, 0.3);
+  border-radius: 3px;
+  opacity: 1;
+}
+
+.specops-start .team-menu-member > .icon-in-game {
+  background-image: url(/img/gui/player-gui.svg);
+  background-size: 14px;
+}
+
+.specops-start .team-menu-member > .icon-submit-name-change {
+  background-image: url(/img/gui/submit.svg);
+  background-size: 13px;
+  cursor: pointer;
+}
+
+.specops-start .team-menu-member .name.menu-option {
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  color: #eef6d4;
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  grid-column: 2;
+  height: 24px;
+  line-height: 24px;
+  margin: 0 !important;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0 4px !important;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100% !important;
+}
+
+.specops-start .team-menu-member .name.menu-option.name-empty {
+  color: rgba(180, 200, 160, 0.4);
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 500;
+  text-align: center;
+}
+
+.specops-start .team-menu-member .name.menu-option.name-self {
+  color: #9dff9d;
+  cursor: pointer;
+}
+
+.specops-start .team-menu-member .name.menu-option.name-self:hover {
+  text-decoration: underline;
+}
+
+.specops-start .team-menu-member .name.menu-option.name-in-game {
+  color: rgba(200, 220, 170, 0.45);
+}
+
+.specops-start .team-menu-member .name-self-input.menu-option {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #9dff9d;
+  border-radius: 4px;
+  color: #eef6d4;
+  font-size: 11px;
+  font-weight: 600;
+  grid-column: 2;
+  height: 24px;
+  line-height: 24px;
+  margin: 0 !important;
+  min-width: 0;
+  padding: 0 6px !important;
+  text-align: left;
+  width: 100% !important;
+}
+
+.specops-start .specops-mode-tab.btn-disabled {
+  cursor: not-allowed;
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.specops-start .specops-mode-tab.btn-hollow,
+.specops-start .specops-mode-tab.btn-hollow-selected,
+.specops-start .specops-mode-tab.is-active {
+  border: none !important;
+  flex: none;
+}
+
+.specops-start .specops-mode-tab.btn-hollow-selected,
+.specops-start .specops-mode-tab.is-active {
+  background: rgba(107, 143, 60, 0.35) !important;
+  box-shadow: inset 0 0 0 1px rgba(157, 255, 157, 0.45);
+  color: #f0ffd8;
+}
+
+@media (max-width: 520px) {
+  .specops-team-body,
+  .specops-start #team-menu-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .specops-team-shell {
+    gap: 8px;
+    padding: 12px 12px 12px;
+  }
+}
+
+/* ── Join team mobile panel ── */
+
+.specops-team-mobile-desc {
+  color: rgba(200, 220, 170, 0.75);
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.specops-team-mobile-warning {
+  color: #ff9090;
+  display: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.specops-start #team-link-input.specops-input {
+  margin-top: 4px;
+  width: 100%;
+}
+
+.specops-start #btn-team-mobile-link-join {
+  margin-top: 4px;
+}
+
+.specops-team-mobile-back {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: rgba(180, 200, 160, 0.6) !important;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  height: auto;
+  line-height: 1.4;
+  margin-top: 8px;
+  position: static !important;
+  text-align: center;
+  width: 100% !important;
+}
+
+.specops-team-mobile-back:hover {
+  color: #d7f0a2 !important;
+}
+
+/* ── Footer action buttons ── */
+
+.specops-footer-actions {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.specops-footer-btn {
+  background: rgba(0, 0, 0, 0.32) !important;
+  border: 1px solid rgba(107, 143, 60, 0.28) !important;
+  border-radius: 7px !important;
+  box-shadow: none !important;
+  color: #d7f0a2 !important;
+  cursor: pointer;
+  display: block;
+  font-size: 12px !important;
+  font-weight: 700;
+  height: 38px !important;
+  letter-spacing: 0.06em;
+  line-height: 36px !important;
+  margin: 0 !important;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+  width: 100% !important;
+}
+
+.specops-footer-btn:hover {
+  background: rgba(107, 143, 60, 0.14) !important;
+  border-color: rgba(157, 255, 157, 0.38) !important;
+  transform: translateY(-1px);
+}
+
+.specops-start #btn-help.specops-footer-btn {
+  background: rgba(0, 0, 0, 0.32) !important;
+  border: 1px solid rgba(107, 143, 60, 0.28) !important;
+  display: block;
+  height: 38px !important;
+  line-height: 36px !important;
+  width: 100% !important;
+}
+
+/* ── Help drawer ── */
+
+.specops-help-drawer {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(107, 143, 60, 0.2);
+  border-radius: 6px;
+  display: none;
+  font-size: 12px;
+  line-height: 1.5;
+  max-height: 160px;
+  overflow-y: auto;
+  padding: 12px 14px;
+}
+
+.specops-help-drawer h3 {
+  color: #9dff9d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin: 10px 0 4px;
+  text-transform: uppercase;
+}
+
+.specops-help-drawer h3:first-child {
+  margin-top: 0;
+}
+
+.specops-help-drawer p {
+  color: rgba(220, 235, 200, 0.8);
+  margin: 2px 0;
+}
+
+.specops-panel.display-help .specops-help-drawer {
+  display: block;
+}
+
+.specops-start .menu-gamepad-focus {
+  box-shadow: 0 0 0 2px #9dff9d, 0 0 16px rgba(157, 255, 157, 0.35) !important;
+}
+
+.specops-start .specops-input.menu-gamepad-focus,
+.specops-start select.menu-gamepad-focus {
+  border-color: rgba(157, 255, 157, 0.65) !important;
+  outline: none;
+}
+
+.specops-gamepad-help {
+  color: rgba(180, 200, 160, 0.55);
+  font-size: 11px;
+  margin-top: 8px;
+}
+
+/* Modals must sit above .specops-app-footer (z-index: 102). */
+.modal {
+  z-index: 120;
+}
+
+/* ── Browse games modal (centered) ── */
+
+#modal-server-browser {
+  background-color: rgba(0, 0, 0, 0.78);
+  z-index: 120;
+}
+
+#modal-server-browser .modal-content {
+  animation: none;
+  background: rgba(6, 10, 6, 0.96);
+  border: 1px solid rgba(107, 143, 60, 0.45);
+  border-radius: 10px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.65);
+  left: 50%;
+  max-height: min(85vh, 560px);
+  overflow: hidden;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(480px, 92vw);
+}
+
+#modal-server-browser .modal-header {
+  background: rgba(107, 143, 60, 0.15);
+  border-bottom: 1px solid rgba(107, 143, 60, 0.28);
+}
+
+#modal-server-browser .modal-header h2 {
+  color: #eef6d4;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+#modal-server-browser .modal-body {
+  max-height: calc(min(85vh, 560px) - 120px);
+  overflow-y: auto;
+  padding: 12px 16px;
+}
+
+#modal-server-browser #server-browser-list {
+  max-height: none;
+  overflow-x: hidden;
+}
+
+#modal-server-browser .server-browser-row {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(107, 143, 60, 0.15);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  padding: 10px 12px;
+}
+
+#modal-server-browser .server-browser-row:last-child {
+  margin-bottom: 0;
+}
+
+#modal-server-browser .server-browser-empty {
+  color: rgba(200, 220, 170, 0.7);
+  padding: 32px 16px;
+}
+
+#modal-server-browser .modal-footer {
+  border-top: 1px solid rgba(107, 143, 60, 0.2);
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 900px) {
+  .specops-menu-stage,
+  .specops-menu-stage:has(.specops-hub-center--team),
+  .specops-menu-stage--team {
+    align-items: center;
+    gap: clamp(10px, 2vh, 14px);
+    width: min(420px, 94vw);
+  }
+
+  .specops-menu-stage > .specops-hero-brand,
+  .specops-menu-stage > .specops-menu-column,
+  .specops-menu-stage--team > .specops-hero-brand,
+  .specops-menu-stage--team > .specops-menu-column,
+  .specops-menu-stage:has(.specops-hub-center--team) > .specops-hero-brand,
+  .specops-menu-stage:has(.specops-hub-center--team) > .specops-menu-column,
+  .specops-menu-stage > .specops-lb-sidebar {
+    width: 100%;
+  }
+
+  .specops-menu-stage--team > .specops-menu-column,
+  .specops-menu-stage:has(.specops-hub-center--team) > .specops-menu-column {
+    width: min(480px, 94vw);
+  }
+}
+
+@media (max-width: 850px), (max-width: 900px) and (min-resolution: 3dppx) {
+  .specops-start #start-row-header.specops-text-logo {
+    margin-bottom: 2px;
+  }
+
+  .specops-logo-box {
+    padding: 10px 22px 10px;
+  }
+
+  .specops-logo-title {
+    font-size: 32px;
+  }
+
+  .specops-logo-mode {
+    font-size: 15px;
+    letter-spacing: 0.12em;
+  }
+
+  .specops-panel-content {
+    gap: 12px;
+    padding: 16px 16px 14px;
+  }
+
+  .specops-team-body,
+  .specops-start #team-menu-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .specops-deploy-btn {
+    font-size: 16px;
+    height: 46px;
+    line-height: 44px;
+  }
+}
+
+body.steam-deck .specops-start .specops-hub-center,
+body.steam-deck .specops-start #start-menu.specops-panel {
+  width: min(400px, 92vw);
+}
+
+body.steam-deck .specops-start .specops-lb-sidebar {
+  width: min(300px, 92vw);
+}
+
+/* Nuclear overrides for legacy app.css team menu rules */
+.specops-start #team-menu,
+.specops-start #team-mobile-link {
+  height: auto !important;
+  left: auto !important;
+  padding: 0 !important;
+  position: relative !important;
+  top: auto !important;
+  transform: none !important;
+}
+
+.specops-start .specops-hub-center--team #team-menu,
+.specops-start .specops-hub-center--team #team-mobile-link {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: min(560px, 94vw) !important;
+  width: min(560px, 94vw) !important;
+}
+
+.specops-start .specops-hub-center:not(.specops-hub-center--team) #team-menu,
+.specops-start .specops-hub-center:not(.specops-hub-center--team) #team-mobile-link {
+  width: 100% !important;
+}
+
+.specops-start #team-menu-columns {
+  height: auto !important;
+  margin-top: 0 !important;
+}
+
+.specops-start #team-menu-members,
+.specops-start #team-menu-options {
+  float: none !important;
+  height: auto !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.specops-start #team-menu-members .team-menu-member .name,
+.specops-start .team-menu-member .name {
+  width: auto !important;
+}
+
+.specops-start #team-code-text,
+.specops-start #team-desc {
+  color: inherit !important;
+  display: flex !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+.specops-start #team-code-text {
+  width: 100% !important;
+}
+
+.specops-start #team-desc-text {
+  display: flex !important;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  width: 100% !important;
+}
+
+.specops-start #team-desc-text span#invite-link-text,
+.specops-start #team-desc-text span#team-url,
+.specops-start #team-desc-text span {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  max-width: 100%;
+}
+
+.specops-start #team-desc-text span#team-url.specops-team-link-display,
+.specops-start span#team-url {
+  color: rgba(200, 220, 170, 0.85) !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  max-width: 100%;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.specops-start #team-menu.specops-panel .menu-column {
+  float: none !important;
+}
+
+.specops-start .copy-item,
+.specops-start .hide-item {
+  position: static !important;
+  top: auto !important;
+}
+
+/* ── App shell: legacy overrides + responsive layout ── */
+
+/* Neutralize legacy app.css scaling, fixed heights, and absolute positioning */
+.specops-start #start-main-center {
+  margin-top: 0 !important;
+  max-width: 100%;
+  transform: none !important;
+  transform-origin: center top !important;
+  width: 100% !important;
+}
+
+.specops-start #start-row-top {
+  height: auto !important;
+  justify-content: flex-start !important;
+  margin-top: 0 !important;
+  min-height: 0;
+  width: 100%;
+}
+
+.specops-start #start-top-right {
+  bottom: auto !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
+  transform: none !important;
+  transform-origin: initial !important;
+}
+
+.specops-start #ad-block-left,
+.specops-start #team-mobile-link {
+  left: auto !important;
+  position: relative !important;
+  top: auto !important;
+  transform: none !important;
+}
+
+.specops-start #start-rotate-reminder {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  width: auto !important;
+}
+
+.specops-start #start-menu,
+.specops-start #start-menu.specops-panel {
+  height: auto !important;
+  left: auto !important;
+  max-height: min(100%, calc(100dvh - 96px)) !important;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+  padding: 0 !important;
+  position: relative !important;
+  top: auto !important;
+  transform: none !important;
+  width: 100% !important;
+}
+
+.specops-start .specops-hub-center {
+  overflow: visible;
+  width: 100%;
+}
+
+.specops-start .specops-menu-stage > .specops-lb-sidebar {
+  flex-shrink: 0;
+  left: auto !important;
+  margin-top: 0;
+  position: static !important;
+  top: auto !important;
+  transform: none !important;
+}
+
+.specops-app-footer {
+  align-items: flex-end;
+  background: linear-gradient(180deg, transparent, rgba(2, 5, 2, 0.72));
+  border-top: 1px solid rgba(107, 143, 60, 0.12);
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  justify-content: flex-end;
+  overflow: visible;
+  padding:
+    4px clamp(8px, 2vw, 14px)
+    max(4px, env(safe-area-inset-bottom));
+  width: 100%;
+  z-index: 102;
+}
+
+.specops-start #start-bottom-left,
+.specops-start #start-bottom-middle,
+.specops-start #start-bottom-right,
+.specops-start #start-bottom-right-wrapper {
+  bottom: auto !important;
+  left: auto !important;
+  position: static !important;
+  right: auto !important;
+  top: auto !important;
+  transform: none !important;
+}
+
+.specops-start #start-bottom-left {
+  flex: 0 0 auto;
+  margin-right: auto;
+}
+
+.specops-start #start-bottom-right-wrapper {
+  align-items: center;
+  display: flex !important;
+  flex: 0 0 auto;
+  visibility: visible !important;
+}
+
+.specops-start #start-bottom-right {
+  align-items: center;
+  display: flex !important;
+  flex-wrap: nowrap;
+  gap: 6px;
+  visibility: visible !important;
+}
+
+.specops-start #start-bottom-middle {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex !important;
+  flex: 0 1 auto;
+  flex-direction: column;
+  gap: 2px;
+  max-width: min(380px, 48vw);
+  min-width: 0;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+}
+
+.specops-credit-row {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  justify-content: space-between;
+}
+
+.specops-credit-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1.15;
+}
+
+.specops-credit-edition {
+  color: #9dff9d;
+  font-family: "Roboto Condensed", arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.specops-start #start-bottom-middle .specops-credit-engine:link,
+.specops-start #start-bottom-middle .specops-credit-engine:visited {
+  color: rgba(200, 220, 170, 0.65);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.specops-start #start-bottom-middle .specops-credit-engine:hover,
+.specops-start #start-bottom-middle .specops-credit-engine:focus {
+  color: #d7f0a2;
+}
+
+.specops-credit-links {
+  display: flex;
+  gap: 8px;
+  border-top: 0;
+  padding-top: 0;
+}
+
+.specops-credit-legal {
+  align-items: baseline;
+  color: rgba(180, 200, 160, 0.55);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 10px;
+  gap: 6px;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  margin: 0;
+  max-width: none;
+  white-space: nowrap;
+}
+
+.specops-credit-more {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid rgba(157, 255, 157, 0.35);
+  color: rgba(200, 220, 170, 0.85);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.specops-credit-more:hover,
+.specops-credit-more:focus {
+  border-bottom-color: #9dff9d;
+  color: #9dff9d;
+  outline: none;
+}
+
+.specops-credit-notice {
+  color: rgba(180, 200, 160, 0.7);
+  font-size: 10px;
+  line-height: 1.35;
+  margin: 0;
+  max-width: 320px;
+  padding: 4px 0 0;
+  white-space: normal;
+}
+
+.specops-credit-notice p {
+  margin: 0;
+}
+
+.specops-start #start-bottom-middle .specops-credit-link:link,
+.specops-start #start-bottom-middle .specops-credit-link:visited {
+  border-bottom: 1px solid rgba(157, 255, 157, 0.38);
+  color: #c8dcaa;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  padding: 1px 0;
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease, text-shadow 0.15s ease;
+}
+
+.specops-start #start-bottom-middle .specops-credit-link:hover,
+.specops-start #start-bottom-middle .specops-credit-link:focus {
+  border-bottom-color: #9dff9d;
+  color: #9dff9d;
+  text-shadow: 0 0 8px rgba(157, 255, 157, 0.35);
+}
+
+.specops-start #start-top-right .account-overview {
+  display: flex;
+  pointer-events: auto;
+}
+
+.specops-start .account-details-user {
+  align-items: center;
+  background: rgba(6, 10, 6, 0.92);
+  border: 1px solid rgba(107, 143, 60, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  display: flex;
+  gap: 6px;
+  padding: 4px 10px 4px 4px;
+}
+
+.specops-start .account-details-user .account-details {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+  min-width: 0;
+}
+
+.specops-start .account-avatar {
+  border-radius: 6px;
+  margin: 0;
+  min-height: 28px;
+  min-width: 28px;
+}
+
+.specops-start .account-name-user {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.specops-menu-stage:not(.specops-menu-stage--team) > .specops-lb-sidebar .specops-lb-entries {
+  max-height: min(290px, 42vh);
+}
+
+/* Wide / landscape: menu + leaderboard side-by-side */
+@media
+  ((min-width: 880px) and (min-height: 520px)),
+  ((orientation: landscape) and (min-width: 700px) and (min-height: 420px)) {
+  .specops-menu-stage:not(.specops-menu-stage--team) {
+    align-items: stretch;
+    column-gap: clamp(14px, 2vw, 22px);
+    display: grid;
+    grid-template-columns: minmax(0, 420px) minmax(0, 300px);
+    grid-template-rows: auto minmax(0, 1fr);
+    width: min(740px, 96vw);
+  }
+
+  .specops-menu-stage:not(.specops-menu-stage--team) > .specops-hero-brand {
+    grid-column: 1 / -1;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .specops-menu-stage:not(.specops-menu-stage--team) > .specops-menu-column {
+    grid-column: 1;
+    grid-row: 2;
+    min-height: 0;
+    width: 100%;
+  }
+
+  .specops-menu-stage:not(.specops-menu-stage--team) > .specops-lb-sidebar {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+    grid-row: 2;
+    max-height: none;
+    min-height: 0;
+    width: 100%;
+  }
+
+  .specops-menu-stage:not(.specops-menu-stage--team) > .specops-lb-sidebar .specops-lb-sidebar-inner {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .specops-menu-stage:not(.specops-menu-stage--team) > .specops-lb-sidebar .specops-lb-entries {
+    flex: 1;
+    max-height: none;
+    min-height: 0;
+  }
+}
+
+/* Short viewports: compact spacing, keep everything in scroll area */
+@media (max-height: 740px) {
+  .specops-hero-tagline,
+  .specops-footer-actions,
+  .specops-credit-legal,
+  .specops-credit-notice {
+    display: none;
+  }
+
+  .specops-hero-brand {
+    margin-bottom: 4px;
+  }
+
+  .specops-logo-box {
+    padding: 6px 16px 7px;
+  }
+
+  .specops-logo-title {
+    font-size: clamp(20px, 4.4vh, 30px);
+  }
+
+  .specops-logo-mode {
+    font-size: 13px;
+  }
+
+  .specops-panel-content {
+    gap: 8px;
+    padding: 12px 14px 10px;
+  }
+
+  .specops-start .specops-panel .specops-mode-tab.menu-option {
+    height: 32px;
+    line-height: 32px;
+  }
+
+  .specops-start .specops-panel .specops-deploy-btn.menu-option {
+    font-size: 16px;
+    height: 44px;
+    line-height: 42px;
+  }
+
+  .specops-start .specops-panel .specops-secondary-btn.menu-option {
+    height: 34px;
+    line-height: 32px;
+  }
+
+  .specops-start .specops-panel .player-name-input.menu-option,
+  .specops-start .specops-panel .specops-select.menu-option {
+    height: 36px;
+    line-height: 36px;
+  }
+
+  .specops-app-footer {
+    padding: 4px 10px max(4px, env(safe-area-inset-bottom));
+  }
+
+  .specops-start #start-bottom-middle {
+    padding: 5px 8px 4px;
+  }
+
+  .specops-lb-status {
+    min-height: 72px;
+    padding: 10px;
+  }
+}
+
+@media (max-height: 600px) {
+  .specops-hero-brand {
+    margin-bottom: 4px;
+  }
+
+  .specops-start #start-bottom-middle {
+    display: none !important;
+  }
+
+  .specops-logo-mode {
+    font-size: 12px;
+  }
+
+  .specops-deploy-btn {
+    height: 40px;
+    line-height: 38px;
+  }
+
+  .specops-lb-sidebar-inner {
+    gap: 8px;
+    padding: 12px 14px;
+  }
+}
+
+/* Narrow widths */
+@media (max-width: 380px) {
+  .specops-hero-account,
+  .specops-start #start-top-right {
+    max-width: 100%;
+    position: static !important;
+    width: 100%;
+  }
+
+  .specops-hero-header {
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .specops-start .account-details-user {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* ── Bottom bar (settings, keybinds, version links) ── */
+
+.specops-start .btn-start-option {
+  background-color: rgba(0, 0, 0, 0.45) !important;
+  background-position: center !important;
+  background-repeat: no-repeat;
+  background-size: 20px !important;
+  border: 1px solid rgba(107, 143, 60, 0.35);
+  border-radius: 6px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+  display: inline-block !important;
+  flex-shrink: 0;
+  height: 40px;
+  width: 40px;
+}
+
+.specops-start .btn-start-option:hover {
+  border-color: rgba(157, 255, 157, 0.45);
+}
+
+.specops-start .language-select-wrap {
+  bottom: auto !important;
+  display: inline-block !important;
+  overflow: visible;
+  position: relative !important;
+  right: auto !important;
+  top: auto !important;
+  vertical-align: middle;
+}
+
+.specops-start .language-select {
+  background-color: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(107, 143, 60, 0.28);
+  border-radius: 6px;
+  color: rgba(220, 235, 200, 0.9);
+  height: 28px;
+  padding-left: 28px;
+  position: relative;
+}
+
+.specops-start .language-select-wrap:after {
+  color: rgba(157, 255, 157, 0.75);
+}
+
+/* Guest play: hide account login/signup while keeping the callsign field. */
+.account-block,
+#account-login,
+#account-login-options,
+#account-login-options-mobile,
+#modal-create-account,
+#btn-pass-locked,
+.btn-account-logout,
+.btn-account-delete,
+.btn-account-reset-stats,
+.btn-account-change-name {
+  display: none !important;
+}
+
+/* ── Fit play + create-team UI on one phone screen ── */
+
+.specops-start #start-rotate-reminder {
+  display: none !important;
+}
+
+.specops-start .specops-hub-center--team #team-menu.specops-panel,
+.specops-start .specops-hub-center--team #team-mobile-link.specops-panel {
+  max-width: min(560px, 94vw) !important;
+  width: min(560px, 94vw) !important;
+}
+
+@media (max-width: 850px), (max-width: 900px) and (min-resolution: 3dppx) {
+  .specops-start #start-main-center {
+    padding: 6px 10px 4px !important;
+  }
+
+  .specops-menu-stage,
+  .specops-menu-stage:has(.specops-hub-center--team),
+  .specops-menu-stage--team {
+    gap: 8px;
+    width: min(400px, 96vw);
+  }
+
+  .specops-menu-stage--team,
+  .specops-menu-stage:has(.specops-hub-center--team) {
+    width: min(400px, 96vw);
+  }
+
+  .specops-menu-stage--team > .specops-hero-brand,
+  .specops-menu-stage--team > .specops-menu-column,
+  .specops-menu-stage:has(.specops-hub-center--team) > .specops-hero-brand,
+  .specops-menu-stage:has(.specops-hub-center--team) > .specops-menu-column {
+    width: 100%;
+  }
+
+  .specops-start .specops-hub-center--team #team-menu.specops-panel,
+  .specops-start .specops-hub-center--team #team-mobile-link.specops-panel {
+    margin-inline: auto !important;
+    max-height: none;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .specops-menu-stage > .specops-lb-sidebar {
+    display: none;
+  }
+
+  .specops-hero-brand {
+    margin-bottom: 2px;
+  }
+
+  .specops-logo-box {
+    padding: 6px 16px 7px;
+  }
+
+  .specops-logo-title {
+    font-size: 26px;
+  }
+
+  .specops-logo-mode {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+
+  .specops-panel-content {
+    gap: 8px;
+    padding: 12px 12px 10px;
+  }
+
+  .specops-start .specops-panel .specops-mode-tab.menu-option {
+    font-size: 13px;
+    height: 32px;
+    line-height: 32px;
+  }
+
+  .specops-start .specops-panel .player-name-input.menu-option,
+  .specops-start .specops-panel .specops-select.menu-option {
+    height: 36px;
+    line-height: 36px;
+  }
+
+  .specops-start .specops-panel #btn-customize.menu-option {
+    height: 36px;
+    width: 36px !important;
+  }
+
+  .specops-start .specops-panel .specops-deploy-btn.menu-option {
+    font-size: 15px;
+    height: 42px;
+    line-height: 40px;
+  }
+
+  .specops-start .specops-panel .specops-secondary-btn.menu-option {
+    height: 34px;
+    line-height: 32px;
+  }
+
+  .specops-start .specops-panel .specops-footer-btn.menu-option {
+    font-size: 11px;
+    height: 32px !important;
+    line-height: 30px !important;
+  }
+
+  .specops-footer-actions {
+    gap: 6px;
+  }
+
+  .specops-app-footer {
+    gap: 6px 8px;
+    padding: 4px 10px max(4px, env(safe-area-inset-bottom));
+  }
+
+  .specops-start .btn-start-option {
+    height: 34px;
+    width: 34px;
+  }
+
+  .specops-team-shell {
+    gap: 8px;
+    padding: 8px 10px 10px;
+  }
+
+  .specops-team-body,
+  .specops-start #team-menu-columns {
+    gap: 8px;
+    grid-template-columns: 1fr;
+  }
+
+  .specops-team-section {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .specops-start .team-menu-member {
+    min-height: 34px;
+  }
+
+  .specops-start #team-menu-member-list {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .specops-team-code-display {
+    font-size: 16px;
+    height: 36px;
+    letter-spacing: 0.14em;
+    padding: 0 10px;
+  }
+
+  .specops-start #start-bottom-middle {
+    min-width: 0;
+    padding: 5px 8px 4px;
+  }
+}
+
+@media (max-width: 850px) and (max-height: 700px) {
+  .specops-hero-tagline,
+  .specops-footer-actions,
+  .specops-start #start-bottom-middle {
+    display: none !important;
+  }
+
+  .specops-logo-box {
+    padding: 4px 12px 5px;
+  }
+
+  .specops-logo-title {
+    font-size: 22px;
+  }
+
+  .specops-panel-content {
+    gap: 6px;
+    padding: 8px 10px;
+  }
+
+  .specops-start .specops-panel .specops-deploy-btn.menu-option {
+    height: 38px;
+    line-height: 36px;
+  }
+}

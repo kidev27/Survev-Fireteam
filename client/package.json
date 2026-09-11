@@ -1,0 +1,37 @@
+{
+  "name": "@survev/client",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "dev": "vite dev",
+    "dev:internal": "vite dev --port 3100 --host 127.0.0.1",
+    "preview": "vite preview",
+    "lint": "cd .. && bun run lint"
+  },
+  "dependencies": {
+    "@taufik-nurrohman/color-picker": "1.4.2",
+    "bootstrap": "^4.6.2",
+    "ejs": "^4.0.1",
+    "hono": "^4.13.0",
+    "jquery": "^3.7.1",
+    "pixi.js-legacy": "^7.4.3",
+    "slugify": "^1.6.9"
+  },
+  "devDependencies": {
+    "@tweakpane/core": "^2.0.5",
+    "@types/bun": "^1.4.0",
+    "@types/ejs": "^3.1.5",
+    "@types/jquery": "^3.5.34",
+    "@types/ws": "^8.18.1",
+    "canvas": "^3.2.3",
+    "codefend": "^3.2.0",
+    "maxrects-packer": "^2.7.3",
+    "sharp": "^0.35.3",
+    "turnstile-types": "^1.2.3",
+    "tweakpane": "^4.0.5",
+    "vite": "^8.2.0",
+    "ws": "^8.21.3"
+  }
+}

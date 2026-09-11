@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <!-- Meta Properties -->
+    <meta charset='UTF-8'>
+    <title>Survev Fireteam Stats — Spec Ops Leaderboards</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=auto, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Survev Fireteam Stats">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="application-name" content="Survev Fireteam">
+    <meta name="description" content="Official Survev Fireteam Spec Ops leaderboards — highest rounds survived, match history, and operator stats.">
+    <meta property="og:description" content="Official Survev Fireteam Spec Ops leaderboards — highest rounds survived, match history, and operator stats.">
+    <meta name="keywords" content="survev fireteam, spec ops, leaderboard, rounds survived, statistics, fireteam stats">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Survev Fireteam Stats — Spec Ops Leaderboards">
+    <meta property="og:url" content="https://fireteam.bbyte.app/stats/">
+    <meta property="og:site_name" content="Survev Fireteam">
+    <meta content="https://fireteam.bbyte.app/img/title.png" property="og:image">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Survev Fireteam Stats">
+    <meta name="twitter:description" content="Spec Ops leaderboards — highest rounds survived.">
+    <link rel="canonical" href="https://fireteam.bbyte.app/stats/" />
+    <link rel="apple-touch-icon-precomposed" href="img/icon_app.png">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Cookie consent -->
+    <script>
+     var consented = true;
+     try {
+         var cfg = JSON.parse(localStorage.getItem('survev_config')) || {};
+         if (cfg.cookiesConsented != undefined) {
+             consented = cfg.cookiesConsented;
+         }
+     } catch { }
+     window.cookiesConsented = consented;
+    </script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="specops-stats">
+  <div id='wrapper'>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark stats-navbar">
+      <div class='container'>
+        <a class="stats-brand navbar-brand" href="/">
+          <span class="stats-brand-survev">SURVEV</span>
+          <span class="stats-brand-fireteam" data-l10n="index-fireteam-version">Fireteam 1.7</span>
+        </a>
+        <button class="btn btn-outline-success my-2 my-sm-0 stats-play-btn" type="button"><a class="nav-link-bright" href="/" data-l10n='index-play-survevio'>Play Survev Fireteam</a></button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse ml-lg-2" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item m-lg-auto m-1">
+              <a class="nav-link-bright" href="/stats" data-l10n='index-leaderboards'>Leaderboards</a>
+            </li>
+            <li class='nav-item my-profile m-lg-auto m-1'>
+              <a id="my-profile" class="nav-link-bright" href="/stats" data-l10n='index-my-stats'>My Stats</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto mr-1">
+            <li id='language-select' class="nav-item dropdown">
+            </li>
+          </ul>
+          <form id="search-players" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Players" aria-label="Search" data-l10n='index-search-players'>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-l10n='index-go'>Go</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div id='contentMain'>
+      <!-- Background -->
+      <div id='leaderboard-bg' class='stats-bg'></div>
+
+      <div id='adsLeaderBoardTop' style='display: none'>
+        <!-- Top ad -->
+        <div id='ad-block-top' class='container mt-3'>
+          <div class='ad-block-top-leaderboard'>
+            <!-- Tag ID: survevio_728x90_leaderboard -->
+            <div align="center" id="survevio_728x90_leaderboard_top">
+            </div>
+          </div>
+
+          <div class='ad-block-top-med-rect'>
+            <!-- Tag ID: survevio_300x250_leaderboard -->
+            <div align="center" id="survevio_300x250_leaderboard_top">
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id='adsPlayerTop' style='display: none'>
+      <div id='ad-block-top' class='container mt-3'>
+        <div class='ad-block-top-leaderboard'>
+          <!-- Tag ID: survevio_728x90_playerprofile -->
+          <div align="center" id="survevio_728x90_playerprofile_top">
+        </div>
+        </div>
+
+        <div class='ad-block-top-med-rect'>
+          <!-- Tag ID: survevio_300x250_playerprofile -->
+          <div align="center" id="survevio_300x250_playerprofile_top">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id='content'></div>
+    <div id='adsLeaderBoardBottom' style='display: none' class='col-12'>
+      <div class='ad-block-bot-med-rect'>
+        <!-- Tag ID: survevio_300x250_leaderboard -->
+        <div align="center" id="survevio_300x250_leaderboard_bottom">
+        </div>
+      </div>
+    </div>
+
+   <div id='adsPlayerBottom' style='display: none' class='col-12'>
+    <div class='ad-block-bot-med-rect'>
+          <!-- Tag ID: survevio_300x250_playerprofile -->
+        <div align="center" id="survevio_300x250_playerprofile_bottom">
+        </div>
+    </div>
+  </div>
+    </div>
+
+  <div id='footer' class='footer'>
+    <div class='container'>
+      <div class='row'>
+        <div id='footer-copyright' class='col-lg-8 col-12'>
+          <div>
+            <span data-l10n='index-copyright-short'>© 2026 Survev · Survev Fireteam</span>
+            <button type='button' class='footer-copyright-more' id='btn-stats-copyright-more' aria-expanded='false' aria-controls='stats-copyright-notice' data-l10n='index-copyright-more'>Legal</button>
+          </div>
+          <div id='stats-copyright-notice' class='footer-copyright-legal' hidden data-l10n='index-copyright-banabyte'>Banabyte LLC holds the rights to Survev Fireteam under limited rights approved by the original license. Banabyte LLC holds all rights to branding of their own brands and projects, excluding the rights to the Survev project. Survev still holds rights to the original codebase, brands, and logos.</div>
+        </div>
+          <div class='col-lg-4 col-12'>
+            <div id='footer-social-links'>
+              <a href="https://discord.gg/w2MDPCpYqC" target="_blank" rel="noopener" class="btn-social btn-darken btn-discord" aria-label="Discord"></a>
+              <a href="https://github.com/ZEROPOINTBRUH" target="_blank" rel="noopener" class="footer-text-link" data-l10n="index-github">GitHub</a>
+              <a href="https://ko-fi.com/zeropointbruh" target="_blank" rel="noopener" class="btn-social btn-darken btn-kofi" aria-label="Ko-fi"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="module" src="/src/stats/js/app.ts"></script>
+</body>
+</html>

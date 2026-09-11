@@ -1,0 +1,109 @@
+<div class="lb-table-shell lb-tower">
+  <table id="leaderboard-table" class="lb-table <%= env.type == "waves_survived" ? "leaderboard-waves" : "" %> <%= (env.teamMode == 'duo' || env.teamMode == 'squad' || env.teamMode == 2 || env.teamMode == 4) ? "leaderboard-teams" : "" %>">
+    <thead>
+      <tr class="leaderboard-headers">
+        <th class="header-rank" scope="col" data-l10n="stats-rank" data-caps="true">Rank</th>
+        <th class="header-player" scope="col" data-l10n="<%= env.teamMode == 'solo' || env.teamMode == 1 ? 'stats-player' : 'index-leaderboard-col-fireteam' %>" data-caps="true">
+          <%= env.teamMode == 'solo' || env.teamMode == 1 ? 'Player' : 'Fireteam' %>
+        </th>
+        <% if (env.type == 'waves_survived') { %>
+            <th class="header-rounds" scope="col" data-l10n="index-leaderboard-col-time" data-caps="true">Rounds</th>
+            <th class="header-difficulty" scope="col" data-l10n="index-leaderboard-col-difficulty" data-caps="true">Difficulty</th>
+            <th class="header-time" scope="col" data-l10n="index-leaderboard-col-elapsed" data-caps="true">Time</th>
+            <th class="header-version" scope="col" data-l10n="stats-version" data-caps="true">Version</th>
+            <th class="header-submitted" scope="col" data-l10n="stats-submitted" data-caps="true">Submitted</th>
+        <% } else { %>
+            <th class="header-stat" scope="col" data-l10n="<%= env.statName %>" data-caps="true">Stat</th>
+        <% } %>
+        <% if (env.type != 'most_kills' && env.type != 'win_streak' && env.type != 'waves_survived') { %>
+            <th class="header-games" scope="col" data-l10n="stats-games" data-caps="true">Games</th>
+        <% } %>
+        <th class="header-region" scope="col" data-l10n="stats-region" data-caps="true">Server</th>
+      </tr>
+    </thead>
+    <tbody class="leaderboard-values">
+      <% for (var i = 0, data = env.data; i < data.length; i++) { %>
+        <% var place = i + 1; %>
+        <% var placeClass = place === 1 ? "is-gold" : place === 2 ? "is-silver" : place === 3 ? "is-bronze" : ""; %>
+        <% var towerT = data.length > 1 ? (i / (data.length - 1)).toFixed(4) : "0"; %>
+        <% var versionLabel = data[i].version ? ('v' + data[i].version) : '—'; %>
+        <% var submittedLabel = env.formatSubmittedAt ? env.formatSubmittedAt(data[i].submittedAt) : (data[i].submittedAt || '—'); %>
+        <% var diffKey = (data[i].difficulty || '').toLowerCase(); %>
+        <% var diffLabel = env.formatDifficulty ? env.formatDifficulty(data[i].difficulty) : (data[i].difficulty || '—'); %>
+        <% var members = Array.isArray(data[i].members) ? data[i].members : null; %>
+        <% var teamBoard = env.teamMode == 'duo' || env.teamMode == 'squad' || env.teamMode == 2 || env.teamMode == 4; %>
+        <% var isTeam = teamBoard && members && members.length > 0; %>
+        <% var teamTitle = data[i].username || (members ? members.join(' · ') : ''); %>
+        <% if (Array.isArray(data[i].slugs) && !isTeam) { %>
+          <tr class="main multiple-players <%= placeClass %>" style="--tower-t: <%= towerT %>;">
+            <td class="data-rank" scope="row"><span class="lb-rank"><%= place %></span></td>
+            <td class="data-player-names">
+              <% for (var j = 0; j < data[i].slugs.length; j++) { %>
+                <span class="player-name">
+                <% if (data[i].slugs[j]) { %>
+                    <a href="/stats/?slug=<%= data[i].slugs[j] %>"><%= data[i].usernames[j] %></a>
+                <% } else { %>
+                    <%= data[i].usernames[j] %>
+                <% } %>
+                </span>
+              <% } %>
+            </td>
+            <% if (env.type == 'waves_survived') { %>
+                <td class="data-rounds"><%= data[i].val > 0 ? data[i].val : '—' %></td>
+                <td class="data-difficulty">
+                  <span class="lb-diff lb-diff-<%= diffKey || 'unknown' %>"><%= diffLabel %></span>
+                </td>
+                <td class="data-time"><%= data[i].time ? env.formatTime(data[i].time) : '—' %></td>
+                <td class="data-version"><%= versionLabel %></td>
+                <td class="data-submitted"><%= submittedLabel %></td>
+            <% } else { %>
+                <td><%= env.type == 'longest_survived' ? env.formatTime(data[i].val) : data[i].val %></td>
+            <% } %>
+            <td class="data-region"><%= data[i].region ? data[i].region.toUpperCase() : '' %></td>
+          </tr>
+        <% } else { %>
+          <tr class="main <%= isTeam ? 'is-team' : 'single-player' %> <%= placeClass %>" style="--tower-t: <%= towerT %>;" <%= isTeam ? 'data-team-row="1"' : '' %>>
+            <td class="data-rank" scope="row"><span class="lb-rank"><%= place %></span></td>
+            <td class="data-player-names">
+              <% if (isTeam) { %>
+                <button type="button" class="lb-team-toggle" aria-expanded="false" title="Show players">
+                  <span class="lb-team-chevron" aria-hidden="true"></span>
+                  <span class="lb-team-name"><%= teamTitle %></span>
+                  <span class="lb-team-count"><%= members.length %></span>
+                </button>
+                <ul class="lb-team-members" hidden>
+                  <% for (var m = 0; m < members.length; m++) { %>
+                    <li class="lb-team-member"><%= members[m] %></li>
+                  <% } %>
+                </ul>
+              <% } else { %>
+                <span class="player-name">
+                <% if (data[i].slug) { %>
+                    <a href="/stats/?slug=<%= data[i].slug%>"><%= data[i].username %></a>
+                <% } else { %>
+                    <%= data[i].username %>
+                <% } %>
+                </span>
+              <% } %>
+            </td>
+            <% if (env.type == 'waves_survived') { %>
+                <td class="data-rounds"><%= data[i].val > 0 ? data[i].val : '—' %></td>
+                <td class="data-difficulty">
+                  <span class="lb-diff lb-diff-<%= diffKey || 'unknown' %>"><%= diffLabel %></span>
+                </td>
+                <td class="data-time"><%= data[i].time ? env.formatTime(data[i].time) : '—' %></td>
+                <td class="data-version"><%= versionLabel %></td>
+                <td class="data-submitted"><%= submittedLabel %></td>
+            <% } else { %>
+                <td><%= env.type == 'longest_survived' ? env.formatTime(data[i].val) : data[i].val %></td>
+            <% } %>
+            <% if (env.type != 'most_kills' && env.type != 'win_streak' && env.type != 'waves_survived') { %>
+                <td><%= data[i].games %></td>
+            <% } %>
+            <td class="data-region"><%= data[i].region ? data[i].region.toUpperCase() : '' %></td>
+          </tr>
+        <% } %>
+      <% } %>
+    </tbody>
+  </table>
+</div>
